@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+
+# This quick'n'dirty script was downloaded from https://github.com/linkrage
+
 import xml.etree.cElementTree as ET
 import xml.etree.ElementTree
 from xml.etree.cElementTree import tostring
