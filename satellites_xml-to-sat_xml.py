@@ -129,18 +129,33 @@ if os.path.exists('satellites.xml'):
 
 	with open("to_import/sat.xml", "w") as outFile:
 		outFile.write(xmlString)
-		
+
 	with open("to_import/tv_prog.xml", "w") as tv_prog:
 		tv_prog.write('<?xml version="1.0"?><programs progdb_version="1.0.0"></programs>')
 
+		fav_names = ['<?xml version="1.0"?><favourites progdb_version="1.0.0">',
+		'<fav name="FAV1" block="0" /><fav name="FAV2" block="0" /><fav name="FAV3"',
+		'block="0" /><fav name="FAV4" block="0" /><fav name="FAV5" block="0" />',
+		'<fav name="FAV6" block="0" /><fav name="FAV7" block="0" /><fav name="FAV8"',
+		'block="0" /><fav name="FAV9" block="0" /><fav name="FAV10" block="0" />',
+		'<fav name="FAV11" block="0" /><fav name="FAV12" block="0" /><fav name="FAV13"',
+		'block="0" /><fav name="FAV14" block="0" /><fav name="FAV15" block="0" />',
+		'<fav name="FAV16" block="0" /><fav name="FAV17" block="0" /><fav name="FAV18"',
+		'block="0" /><fav name="FAV19" block="0" /><fav name="FAV20" block="0" />',
+		'<fav name="FAV21" block="0" /><fav name="FAV22" block="0" /><fav name="FAV23"',
+		'block="0" /><fav name="FAV24" block="0" /><fav name="FAV25" block="0" />',
+		'<fav name="FAV26" block="0" /><fav name="FAV27" block="0" /><fav name="FAV28"',
+		'block="0" /><fav name="FAV29" block="0" /><fav name="FAV30" block="0" />',
+		'<fav name="FAV31" block="0" /><fav name="FAV32" block="0" /></favourites>']
+
 	with open("to_import/tv_fav.xml", "w") as tv_fav:
-		tv_fav.write('<?xml version="1.0"?><favourites progdb_version="1.0.0"></favourites>')
+		tv_fav.writelines(fav_names)
 
 	with open("to_import/radio_prog.xml", "w") as radio_prog:
 		radio_prog.write('<?xml version="1.0"?><programs progdb_version="1.0.0"></programs>')
 
 	with open("to_import/radio_fav.xml", "w") as radio_fav:
-		radio_fav.write('<?xml version="1.0"?><favourites progdb_version="1.0.0"></favourites>')
+		radio_fav.writelines(fav_names)
 
 	clearscreen()
 	raw_input("ALWAYS BACKUP/EXPORT YOUR EXISTING SATELLITES/FAVOURITES BEFORE USING THIS\nAPPLICATION! THE GENERATED FILES FROM IT WILL REPLACE/DELETE YOUR PROGRAMS &\nFAVOURITES WHEN IMPORTED TO YOUR RECEIVER SINCE THIS IS NEEDED IN ORDER\nEVERYTHING TO START WORKING AFTER THE IMPORT!\n\n\t\tsatellites.xml converted successfuly! \n\n\nNow put the \"to_import\" directory I just created/updated in the current\n\ndirectory onto a usb flash drive and plug it in your receiver from where\n\nyou can import the NEW satellites from the usb.\n\n\t\t\t\t********\n\nWARNING: If your satellites.xml input file contains more than 64 satellites you'll get only the first 64 converted and the rest will be cut off! This limitation is needed because Spark Linux receivers can list channels by satellite correctly only if you have 64 or less satellites in the list.\n\n\t\tPress [ENTER] to close this window...")
